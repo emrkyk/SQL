@@ -390,6 +390,26 @@ SELECT CT.CITY,
 FROM CITIES CT
 ----------------------------------------------------------------------------------------
 
+SELECT CT.CITY, COUNT(C.ID) AS CUSTOMER_COUNT
+FROM CUSTOMERS C
+JOIN CITIES CT ON CT.ID = C.CITYID
+GROUP BY CT.CITY
+HAVING COUNT(C.ID) > 10
+ORDER BY COUNT(C.ID) DESC
 
+-- 2. SUBQUERY
+
+SELECT CT.CITY,
+(SELECT COUNT(C.ID) FROM CUSTOMERS C WHERE C.CITYID = CT.ID) AS CUSTOMER_COUNT
+FROM CITIES CT
+WHERE (SELECT COUNT(C.ID) FROM CUSTOMERS C WHERE C.CITYID = CT.ID) > 10
+ORDER BY (SELECT COUNT(C.ID) FROM CUSTOMERS C WHERE C.CITYID = CT.ID) DESC
+----------------------------------------------------------------------------------------
+SELECT CT.CITY, C.GENDER, COUNT(C.ID) AS CUSTOMER_COUNT 
+FROM CUSTOMERS C
+JOIN CITIES CT ON CT.ID = C.CITYID
+GROUP BY CT.CITY, C.GENDER
+ORDER BY CT.CITY, C.GENDER
+----------------------------------------------------------------------------------------
 
 

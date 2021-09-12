@@ -495,3 +495,15 @@ FROM CUSTOMERS C
 WHERE (SELECT CT.CITY FROM CITIES CT WHERE CT.ID = C.CITYID) = 'İSTANBUL' 
 AND (SELECT DT.DISTRICT FROM DISTRICT DT WHERE DT.ID = C.DISTRICTID) NOT IN ('KADIKÖY')
 ----------------------------------------------------------------------------------------
+DELETE FROM CITIES WHERE CITY = 'ANKARA'
+
+SELECT * 
+FROM CUSTOMERS C
+LEFT JOIN CITIES CT ON CT.ID = C.CITYID
+WHERE C.CITYID = 6
+
+SELECT *
+FROM CUSTOMERS C
+LEFT JOIN CITIES CT ON CT.ID = C.CITYID
+WHERE CT.CITY IS NULL
+----------------------------------------------------------------------------------------

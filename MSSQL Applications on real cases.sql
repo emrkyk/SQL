@@ -520,5 +520,14 @@ VALUES
 (06, 'ANKARA')
 
 SELECT * FROM CITIES
+
+SELECT *, LEFT(TELNR1, 5) AS OPERATOR_1,
+LEFT(TELNR2,5) AS OPERATOR_2
+FROM CUSTOMERS
+
+--2.
+SELECT *, SUBSTRING(TELNR1,1,5) AS OPERATOR_1,
+SUBSTRING(TELNR2,1,5) AS OPERATOR_2
+FROM CUSTOMERS
 ----------------------------------------------------------------------------------------
 

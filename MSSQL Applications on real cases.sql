@@ -507,3 +507,18 @@ FROM CUSTOMERS C
 LEFT JOIN CITIES CT ON CT.ID = C.CITYID
 WHERE CT.CITY IS NULL
 ----------------------------------------------------------------------------------------
+SET IDENTITY_INSERT CITIES ON  
+ 
+INSERT INTO CITIES
+(ID, CITY)
+VALUES
+(34,'İSTANBUL')
+
+INSERT INTO CITIES
+(ID, CITY)
+VALUES
+(06, 'ANKARA')
+
+SELECT * FROM CITIES
+----------------------------------------------------------------------------------------
+

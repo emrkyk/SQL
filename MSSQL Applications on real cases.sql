@@ -738,4 +738,11 @@ END TELNR2_Z_OPERATOR
 FROM CUSTOMERS
 ) GS
 ----------------------------------------------------------------------------------------
+SELECT CT.CITY, D.DISTRICT, COUNT(C.ID) AS CUSTOMER_COUNT
+FROM CUSTOMERS C
+JOIN CITIES CT ON CT.ID = C.CITYID
+JOIN DISTRICT D ON D.ID = C.DISTRICTID
+GROUP BY CT.CITY, D.DISTRICT
+ORDER BY CT.CITY, COUNT(C.ID) DESC
 
+----------------------------------------------------------------------------------------

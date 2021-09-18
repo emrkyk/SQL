@@ -746,3 +746,12 @@ GROUP BY CT.CITY, D.DISTRICT
 ORDER BY CT.CITY, COUNT(C.ID) DESC
 
 ----------------------------------------------------------------------------------------
+SELECT CUSTOMERNAME, DATENAME(DW, BIRTHDATE) AS BIRTHDAY_
+FROM CUSTOMERS	
+
+
+#IN GERMAN
+SET LANGUAGE GERMAN
+SELECT CUSTOMERNAME, DATENAME(DW,BIRTHDATE) AS GEBURTSTAG
+FROM CUSTOMERS
+----------------------------------------------------------------------------------------

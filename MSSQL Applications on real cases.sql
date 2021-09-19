@@ -769,4 +769,4 @@ WHERE DATEPART(MONTH,BIRTHDATE) = MONTH(GETDATE()) AND DATEPART(DAY,BIRTHDATE) =
 SELECT *
 FROM CUSTOMERS
 WHERE DATEPART(MONTH,BIRTHDATE) = DATEPART(MONTH,GETDATE()) AND DATEPART(DAY,BIRTHDATE) = DATEPART(DAY,GETDATE())
-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------

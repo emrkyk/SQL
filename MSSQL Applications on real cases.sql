@@ -796,4 +796,4 @@ SELECT DISTINCT P.GENDER,
 (SELECT COUNT(ID) FROM PERSON WHERE P.GENDER = GENDER AND YEAR(INDATE) = 2018) AS _2018_,
 (SELECT COUNT(ID) FROM PERSON WHERE P.GENDER = GENDER AND YEAR(INDATE) = 2019) AS _2019_
 FROM PERSON P
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------

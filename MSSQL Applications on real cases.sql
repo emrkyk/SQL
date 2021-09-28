@@ -829,5 +829,5 @@ JOIN CITY C ON C.ID = A.CITYID
 JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.ID, U.NAMESURNAME
-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 

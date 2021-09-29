@@ -831,3 +831,12 @@ JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.ID, U.NAMESURNAME
 -------------------------------------------------------------------------------------------
 
+SELECT U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2, COUNT(A.ID) AS ADRES_SAYISI
+FROM USER_ U
+JOIN ADDRES A ON U.ID = A.USERID
+JOIN CITY C ON C.ID = A.CITYID
+JOIN TOWN T ON T.ID = A.TOWNID
+JOIN DISTRICT D ON D.ID = A.DISTRICTID
+GROUP BY U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
+HAVING COUNT(A.ID) = 1
+-------------------------------------------------------------------------------------------

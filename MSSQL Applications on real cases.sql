@@ -839,4 +839,4 @@ JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
 HAVING COUNT(A.ID) = 1
--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------

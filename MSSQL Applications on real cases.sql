@@ -840,3 +840,12 @@ JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
 HAVING COUNT(A.ID) = 1
 --------------------------------------------------------------------------------------------
+SELECT C.CITY, COUNT(U.ID) AS KULLANICI
+FROM USER_ U
+JOIN ADDRES A ON U.ID = A.USERID
+JOIN CITY C ON C.ID = A.CITYID
+JOIN TOWN T ON T.ID = A.TOWNID
+JOIN DISTRICT D ON D.ID = A.DISTRICTID
+GROUP BY C.CITY
+ORDER BY 2 DESC
+--------------------------------------------------------------------------------------------

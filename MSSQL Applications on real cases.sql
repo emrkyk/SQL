@@ -839,7 +839,7 @@ JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
 HAVING COUNT(A.ID) = 1
---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 SELECT C.CITY, COUNT(U.ID) AS KULLANICI
 FROM USER_ U
 JOIN ADDRES A ON U.ID = A.USERID
@@ -848,7 +848,7 @@ JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY C.CITY
 ORDER BY 2 DESC
---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 SELECT U.ID, U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2, COUNT(A.ID) AS ADRES_SAYISI,
 COUNT(DISTINCT C.CITY) AS SEHIR_SAYISI
 FROM USER_ U
@@ -858,7 +858,7 @@ JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.ID, U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
 
--- VALİDATİON
+-- VALIDATION
 SELECT * FROM ADDRES WHERE USERID = '4460'
 
 -- 2. 
@@ -869,5 +869,24 @@ JOIN CITY C ON C.ID = A.CITYID
 JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.ID, U.NAMESURNAME
---------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+SELECT U.ID, U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2, COUNT(A.ID) AS ADRES_SAYISI,
+COUNT(DISTINCT C.CITY) AS SEHIR_SAYISI
+FROM USER_ U
+JOIN ADDRES A ON U.ID = A.USERID
+JOIN CITY C ON C.ID = A.CITYID
+JOIN TOWN T ON T.ID = A.TOWNID
+JOIN DISTRICT D ON D.ID = A.DISTRICTID
+GROUP BY U.ID, U.USERNAME_,U.NAMESURNAME, U.EMAIL, U.TELNR1, U.TELNR2
+HAVING COUNT(A.ID) <> COUNT(DISTINCT C.CITY)
 
+-- 2. 
+SELECT U.ID, U.NAMESURNAME, COUNT(DISTINCT A.ADDRESSTYPE) AS ADRES_SA, COUNT(DISTINCT C.CITY) AS SEHİR_SA
+FROM USER_ U
+JOIN ADDRES A ON U.ID = A.USERID
+JOIN CITY C ON C.ID = A.CITYID
+JOIN TOWN T ON T.ID = A.TOWNID
+JOIN DISTRICT D ON D.ID = A.DISTRICTID
+GROUP BY U.ID, U.NAMESURNAME
+HAVING COUNT(DISTINCT A.ADDRESSTYPE) != COUNT(DISTINCT C.CITY)
+------------------------------------------------------------------------------------------------

@@ -900,4 +900,4 @@ SELECT U.ID, U.NAMESURNAME,
 (SELECT COUNT(*) FROM BASKET WHERE BASKET.USERID = U.ID)
 FROM USER_ U
 WHERE (SELECT COUNT(*) FROM BASKET WHERE BASKET.USERID = U.ID) > 0
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------

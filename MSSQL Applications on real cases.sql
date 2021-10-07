@@ -889,7 +889,7 @@ JOIN TOWN T ON T.ID = A.TOWNID
 JOIN DISTRICT D ON D.ID = A.DISTRICTID
 GROUP BY U.ID, U.NAMESURNAME
 HAVING COUNT(DISTINCT A.ADDRESSTYPE) != COUNT(DISTINCT C.CITY)
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 SELECT U.ID, U.NAMESURNAME, COUNT(B.ID)
 FROM USER_ U
 JOIN BASKET B ON U.ID = B.USERID

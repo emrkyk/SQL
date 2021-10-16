@@ -964,3 +964,17 @@ JOIN ITEM I ON I.ID = BD.ITEMID
 WHERE U.ID = 67
 ORDER BY BD.DATE_
 -------------------------------------------------------------------------------------------------
+SELECT V.SALARY_COMP, COUNT(V.ID) AS CUSTOMERCOUNT FROM
+(
+SELECT *,
+CASE
+	WHEN GENDER = 'E' AND SALARY >= 5800 THEN 'ABOVE_AVERAGE_SALARY_MALE'
+	WHEN GENDER = 'K' AND SALARY >= 5800 THEN 'ABOVE_AVERAGE_SALARY_FEMALE'
+	WHEN GENDER = 'E' AND SALARY <= 5800 THEN 'BELOW_AVERAGE_SALARY_MALE'
+	WHEN GENDER = 'K' AND SALARY <= 5800 THEN 'BELOW_AVERAGE_SALARY_FEMALE'
+END SALARY_COMP
+FROM PERSON
+)V
+GROUP BY V.SALARY_COMP
+-------------------------------------------------------------------------------------------------
+

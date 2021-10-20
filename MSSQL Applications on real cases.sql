@@ -996,4 +996,4 @@ SELECT DISTINCT P.GENDER,
 (SELECT COUNT(ID) FROM PERSON WHERE P.GENDER = GENDER AND OUTDATE IS NOT NULL) AS LEFT_THE_JOB
 FROM PERSON P
 ORDER BY P.GENDER
--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------

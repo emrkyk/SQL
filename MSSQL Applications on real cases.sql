@@ -997,3 +997,10 @@ SELECT DISTINCT P.GENDER,
 FROM PERSON P
 ORDER BY P.GENDER
 --------------------------------------------------------------------------------------------------
+SELECT CITY, SUM(LINETOTAL) TOTALSALES 
+FROM SALEORDERS
+GROUP BY CITY
+ORDER BY CITY
+--------------------------------------------------------------------------------------------------
+
+

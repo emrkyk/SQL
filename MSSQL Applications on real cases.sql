@@ -1002,5 +1002,9 @@ FROM SALEORDERS
 GROUP BY CITY
 ORDER BY CITY
 --------------------------------------------------------------------------------------------------
-
+SELECT CITY, MONTH_, SUM(LINETOTAL) AS TOTALSALE
+FROM SALEORDERS
+GROUP BY CITY, MONTH_
+ORDER BY CITY, MONTH_
+--------------------------------------------------------------------------------------------------
 

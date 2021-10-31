@@ -1115,3 +1115,17 @@ JOIN TOWNS T ON T.ID = ADR.TOWNID
 JOIN ORDERDETAILS OD ON OD.ORDERID = O.ID
 JOIN ITEMS ITM ON ITM.ID = OD.ITEMID
 --------------------------------------------------------------------------------------------------
+SELECT * FROM CITIES   
+CREATE TABLE CITIES2(
+ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+COUNTRYID INT,
+CITY VARCHAR(50))
+
+SELECT * FROM CITIES
+SELECT * FROM CITIES2
+
+INSERT INTO CITIES2 
+(COUNTRYID, CITY)
+SELECT COUNTRYID, CITY
+FROM CITIES
+--------------------------------------------------------------------------------------------------
